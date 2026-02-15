@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +21,11 @@ public class CheckFormTests {
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com/";
 
+    }
+
+    @AfterEach()
+    void closeBrowser() {
+        closeWebDriver();
     }
 
     @Test
