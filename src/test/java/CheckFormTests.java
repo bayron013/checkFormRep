@@ -1,7 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -30,10 +29,12 @@ public class CheckFormTests {
 
 
     @Test
-    void CheckFormTest() {
+    void сheckFormTest() {
 
         // Открытие сайта
         open("");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -76,22 +77,6 @@ public class CheckFormTests {
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Приморское шоссе 15, к2"));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Agra"));
 
-//      Попытки использовать календарь
-//      1)
-//        $("react-datepicker__year-select select").click();
-//        $$(".react-datepicker__year-option").findBy(text("1989")).click();
-//        $(".react-datepicker__month-select").selectOption(month);
-//        $(".react-datepicker__year-select").selectOption(year);
-//        $$(".react-datepicker__day").findBy(text(day)).click();
-
-//      2)
-//        $("#dateOfBirthInput").click();
-//        $(".react-datepicker__year-select").click();
-//        $("option[value='1989']").click();
-//        $(".react-datepicker__month-select").click();
-//        $("option[value='9']").click();
-//        $(".react-datepicker__week").
-//                $(".react-datepicker__day react-datepicker__day--006").click();
 
     }
 
@@ -101,6 +86,8 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -124,6 +111,8 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -140,6 +129,8 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
