@@ -29,7 +29,7 @@ public class CheckFormTests {
 
 
     @Test
-    void сheckFormTest() {
+    void checkFormTest() {
 
         // Открытие сайта
         open("");
