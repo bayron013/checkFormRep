@@ -4,65 +4,39 @@ public class MyFirstClass {
 
     public static void main(String[] args) {
 
-        // Целочисленные типы
-        byte aByte = 0; // 8b   -128 + 127
-        short aShort = 0; // 16b -32768 +32767
-        int aInt = 0; // 32b   (-2^32) .. (+2^32 -1)
-        Integer intWrapper = 0;
-        long aLong = 0L; // 64b
-        // Типы с плавающей точкой
-        float aFloat = 0.0F;
-        double aDouble = 0.0;
-        Double doubleWrapper = 9.1;
-        // Символьный
-        char aChar = 'a';
-        Character charWrapper = 'a';
-        // Логически тип
-        boolean aBoolean = true;
-        Boolean booleanWrapper = true;
-        // Строка (и бесконечность других объектных/ссылочных типов)
-        String toBePrint = "Hello world!";
-        List<Integer> teachers = List.of(10, 20);
+        int a = 8, b = 24, c = 100;
+        int division = b / a;
+        System.out.println(division);
+        int multiplication = b * c;
+        System.out.println(multiplication);
+        int subtraction = c - a;
+        System.out.println(subtraction);
+        int sum = c + b + a;
+        System.out.println(sum);
 
-        // Операторы
-        // Оператор присвоения =
-        String nameFirst = "Dmitrii";
-        int age = 34;
-        String nameSecond = "Dmitrii";
-        // Арифметические операторы + - / * % ++ --
-        int result = aInt;
+        double tt = 8.16;
+        double uu = 31.1;
+        double rr = ((c * tt) + (b / a) - b + tt);
+        double ii = uu - tt + sum;
+        System.out.println(rr);
+        System.out.println(ii);
 
-        // Операторы сравнения <, >, >=, <=, !=, ==
-
-        // Логические операторы &, |, &&, ||, !
-
-//    System.out.println(!(nameFirst.equals("Dmitrii")));
-
-        // Оператор instanceof
-
-        System.out.println(nameFirst instanceof  String);
-
-        // Тернарный оператор
-
-        char sex = 'm';
-
-        String childName = sex == 'm'
-                ? "Valentin"
-                : "Valentina";
-
-        // Управляющая конструкция if
-
-        if (sex == 'm') {
-            childName = "Valentin";
-        } else if (sex == 'w') {
-            childName = "Valentina";
+        if ( sum > ii ) {
+            System.out.println("Всё правильно " +  sum + " больше чем " + ii);
         } else {
-            System.out.println("((");
+            System.out.println("Ты ошибся " + ii + " оказалось больше чем " + sum);
         }
+        boolean f = rr < c;
+        System.out.println(f);
+        boolean d = uu >= b;
+        System.out.println(d);
+        boolean q = ii <= rr;
+        System.out.println(q);
 
-        // ключевое слово new
+        double p = Double.MAX_VALUE;
 
-        String name = new String("Dima");
+        System.out.println(p * c);
+
 
     }
 
