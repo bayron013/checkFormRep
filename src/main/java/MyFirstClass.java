@@ -32,7 +32,6 @@ public class MyFirstClass {
         System.out.println(d);
         boolean q = ii <= rr;
         System.out.println(q);
-
         double p = Double.MAX_VALUE;
 
         System.out.println(p * c);
