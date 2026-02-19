@@ -3,8 +3,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -55,8 +53,7 @@ public class CheckFormTests {
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbies-checkbox-1").click();
         $("#hobbies-checkbox-3").click();
-        File imageFile = new File("src/test/resources/Ошибка в браузере.png");
-        $("#uploadPicture").uploadFile(imageFile);
+        $("#uploadPicture").uploadFromClasspath("Ошибка в браузере.png");
         $("#currentAddress").setValue("Приморское шоссе 15, к2");
         $("#react-select-3-input").click();
         $$("[role='option']").findBy(text("Uttar Pradesh")).shouldBe(visible).click();
@@ -119,6 +116,8 @@ public class CheckFormTests {
         // Ввод данных
         $("#userEmail").setValue("quqaresh@rambler.1");
         $("#submit").click();
+
+        // Проверки формы
         $("#userEmail").shouldBe(match("background-image contains error icon",
                 el -> el.getCssValue("background-image").contains("stroke='%23dc3545'")));
     }
@@ -136,6 +135,8 @@ public class CheckFormTests {
 
         // Ввод данных
         $("#submit").click();
+
+        // Проверки формы
         $("#firstName").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         $("#genterWrapper").$(byText("Male")).shouldHave(cssValue("color", "rgba(220, 53, 69, 1)"));
         $("#userNumber").shouldBe(match("background-image contains error icon",
