@@ -31,8 +31,10 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript("""
+            document.getElementById('fixedban')?.remove();
+            document.querySelector('footer')?.remove();
+            """);
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -83,8 +85,10 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript("""
+            document.getElementById('fixedban')?.remove();
+            document.querySelector('footer')?.remove();
+            """);
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -108,8 +112,10 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript("""
+            document.getElementById('fixedban')?.remove();
+            document.querySelector('footer')?.remove();
+            """);
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -128,8 +134,10 @@ public class CheckFormTests {
 
         // Открытие сайта
         open("");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript("""
+            document.getElementById('fixedban')?.remove();
+            document.querySelector('footer')?.remove();
+            """);
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
