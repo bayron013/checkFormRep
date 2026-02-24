@@ -1,6 +1,5 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+package tasts;
+
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -8,22 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class CheckFormTests {
-
-
-    @BeforeAll
-    static void setUp() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com/";
-
-    }
-
-
-    @AfterEach()
-    void closeBrowser() {
-        closeWebDriver();
-    }
+public class CheckFormTests extends TestBase {
 
 
     @Test
