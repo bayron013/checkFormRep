@@ -26,9 +26,8 @@ public class CheckFormTests extends TestBase {
         $("#firstName").setValue("Vladick");
         $("#lastName").setValue("Simba");
         $("#userEmail").setValue("winwin@maaal.zet");
-        $("#gender-radio-1").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("7955443322");
-
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").click();
         $("option[value='1989']").click();
@@ -37,8 +36,8 @@ public class CheckFormTests extends TestBase {
         $(".react-datepicker__day--006:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("History").pressEnter();
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $("#hobbies-checkbox-1").click();
-        $("#hobbies-checkbox-3").click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("Ошибка в браузере.png");
         $("#currentAddress").setValue("Приморское шоссе 15, к2");
         $("#react-select-3-input").click();
@@ -79,7 +78,7 @@ public class CheckFormTests extends TestBase {
         // Ввод данных
         $("#firstName").setValue("Svetic");
         $("#lastName").setValue("Semic'vetic");
-        $("#gender-radio-2").click();
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("7955443322");
         $("#submit").click();
 
