@@ -26,6 +26,9 @@ public class TestBase {
     public static String surName = "Simba";
     public static String email = "winwin@maaal.zet";
     public static String phoneNumber = "7955443322";
+    public static String gender = "Male";
     public static String address = "Приморское шоссе 15, к2";
+    public static String subject1 = "History", subject2 = "Maths";
+
 
 }

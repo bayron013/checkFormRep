@@ -1,6 +1,7 @@
 package tasts;
 
 import org.junit.jupiter.api.Test;
+import pages.CheckFormPages;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,33 +10,28 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CheckFormTests extends TestBase {
 
+    CheckFormPages checkFormPages = new CheckFormPages();
 
     @Test
     void checkFormTest() {
 
         // Открытие сайта
-        open("");
-        executeJavaScript("""
-            document.getElementById('fixedban')?.remove();
-            document.querySelector('footer')?.remove();
-            """);
-        $$(".card-body").findBy(text("Forms")).click();
-        $$(".router-link").findBy(text("Practice Form")).click();
+        checkFormPages.openPage()
+                .findTestPage()
+                .inputFirstName(name);
+
 
         // Ввод данных
-        $("#firstName").setValue(name);
+        checkFormPages.inputFirstName("Vlad");
         $("#lastName").setValue(surName);
         $("#userEmail").setValue(email);
-        $("#genterWrapper").$(byText("Male")).click();
+        $("#genterWrapper").$(byText(gender)).click();
         $("#userNumber").setValue(phoneNumber);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").click();
-        $("option[value='1989']").click();
-        $(".react-datepicker__month-select").click();
-        $("option[value='9']").click();
-        $(".react-datepicker__day--006:not(.react-datepicker__day--outside-month)").click();
-        $("#subjectsInput").setValue("History").pressEnter();
-        $("#subjectsInput").setValue("Maths").pressEnter();
+
+        checkFormPages.setDateOfBirth("1989", "October", "6");
+
+        $("#subjectsInput").setValue(subject1).pressEnter();
+        $("#subjectsInput").setValue(subject2).pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("Ошибка в браузере.png");
@@ -67,13 +63,8 @@ public class CheckFormTests extends TestBase {
     void positiveMinimumFieldsTest() {
 
         // Открытие сайта
-        open("");
-        executeJavaScript("""
-            document.getElementById('fixedban')?.remove();
-            document.querySelector('footer')?.remove();
-            """);
-        $$(".card-body").findBy(text("Forms")).click();
-        $$(".router-link").findBy(text("Practice Form")).click();
+        checkFormPages.openPage()
+                .findTestPage();
 
         // Ввод данных
         $("#firstName").setValue(name);
@@ -94,13 +85,8 @@ public class CheckFormTests extends TestBase {
     void negativeWrongEmailTest(){
 
         // Открытие сайта
-        open("");
-        executeJavaScript("""
-            document.getElementById('fixedban')?.remove();
-            document.querySelector('footer')?.remove();
-            """);
-        $$(".card-body").findBy(text("Forms")).click();
-        $$(".router-link").findBy(text("Practice Form")).click();
+        checkFormPages.openPage()
+                .findTestPage();
 
         // Ввод данных
         $("#userEmail").setValue("quqaresh@rambler.1");
