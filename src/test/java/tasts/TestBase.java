@@ -21,4 +21,11 @@ public class TestBase {
         closeWebDriver();
     }
 
+    // Переиспользуемые переменные
+    public static String name = "Vladick";
+    public static String surName = "Simba";
+    public static String email = "winwin@maaal.zet";
+    public static String phoneNumber = "7955443322";
+    public static String address = "Приморское шоссе 15, к2";
+
 }

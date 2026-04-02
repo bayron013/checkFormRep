@@ -23,11 +23,11 @@ public class CheckFormTests extends TestBase {
         $$(".router-link").findBy(text("Practice Form")).click();
 
         // Ввод данных
-        $("#firstName").setValue("Vladick");
-        $("#lastName").setValue("Simba");
-        $("#userEmail").setValue("winwin@maaal.zet");
+        $("#firstName").setValue(name);
+        $("#lastName").setValue(surName);
+        $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("7955443322");
+        $("#userNumber").setValue(phoneNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").click();
         $("option[value='1989']").click();
@@ -39,7 +39,7 @@ public class CheckFormTests extends TestBase {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("Ошибка в браузере.png");
-        $("#currentAddress").setValue("Приморское шоссе 15, к2");
+        $("#currentAddress").setValue(address);
         $("#react-select-3-input").click();
         $$("[role='option']").findBy(text("Uttar Pradesh")).shouldBe(visible).click();
         $("#react-select-4-input").click();
@@ -48,15 +48,15 @@ public class CheckFormTests extends TestBase {
 
         // Проверки формы
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Vladick Simba"));
-        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("winwin@maaal.zet"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(name + " " + surName));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(email));
         $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
-        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7955443322"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(phoneNumber));
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("06 October,1989"));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("History, Maths"));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Music"));
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("Ошибка в браузере.png"));
-        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Приморское шоссе 15, к2"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text(address));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Agra"));
 
 
@@ -76,17 +76,17 @@ public class CheckFormTests extends TestBase {
         $$(".router-link").findBy(text("Practice Form")).click();
 
         // Ввод данных
-        $("#firstName").setValue("Svetic");
-        $("#lastName").setValue("Semic'vetic");
-        $("#genterWrapper").$(byText("Female")).click();
-        $("#userNumber").setValue("7955443322");
+        $("#firstName").setValue(name);
+        $("#lastName").setValue(surName);
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue(phoneNumber);
         $("#submit").click();
 
         // Проверки формы
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Svetic Semic'vetic"));
-        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Female"));
-        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7955443322"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(name + " " + surName));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(phoneNumber));
     }
 
 
