@@ -54,7 +54,7 @@ public class CheckFormTests extends TestBase {
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(phoneNumber));
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("06 October,1989"));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("History, Maths"));
-        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Music"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Reading"));
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("Ошибка в браузере.png"));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(address));
         $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Agra"));
