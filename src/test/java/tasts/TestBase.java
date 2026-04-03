@@ -29,6 +29,11 @@ public class TestBase {
     public static String gender = "Male";
     public static String address = "Приморское шоссе 15, к2";
     public static String subject1 = "History", subject2 = "Maths";
+    public static String hobby1 = "Sports", hobby2 = "Reading";
+    public static String uploadFile = "Ошибка в браузере.png";
+    public static String birthsDay = "06", birthsMounth = "October", birthsYear = "1989";
+    public static String region = "Uttar Pradesh", city = "Agra";
+
 
 
 }

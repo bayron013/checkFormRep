@@ -34,6 +34,8 @@ public class CheckFormPages {
 
     public CheckFormPages inputFirstName(String name) {
         userNameInput.setValue(name);
+
+        return this;
     }
 
 

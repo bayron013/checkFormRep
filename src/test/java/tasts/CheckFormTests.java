@@ -22,38 +22,39 @@ public class CheckFormTests extends TestBase {
 
 
         // Ввод данных
-        checkFormPages.inputFirstName("Vlad");
+        checkFormPages.inputFirstName(name);
         $("#lastName").setValue(surName);
         $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText(gender)).click();
         $("#userNumber").setValue(phoneNumber);
 
-        checkFormPages.setDateOfBirth("1989", "October", "6");
+        checkFormPages.setDateOfBirth(birthsYear, birthsMounth, birthsDay);
 
         $("#subjectsInput").setValue(subject1).pressEnter();
         $("#subjectsInput").setValue(subject2).pressEnter();
-        $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("Ошибка в браузере.png");
+        $("#hobbiesWrapper").$(byText(hobby1)).click();
+        $("#hobbiesWrapper").$(byText(hobby2)).click();
+        $("#uploadPicture").uploadFromClasspath(uploadFile);
         $("#currentAddress").setValue(address);
         $("#react-select-3-input").click();
-        $$("[role='option']").findBy(text("Uttar Pradesh")).shouldBe(visible).click();
+        $$("[role='option']").findBy(text(region)).shouldBe(visible).click();
         $("#react-select-4-input").click();
-        $$("[role='option']").findBy(text("Agra")).shouldBe(visible).click();
+        $$("[role='option']").findBy(text(city)).shouldBe(visible).click();
         $("#submit").click();
 
         // Проверки формы
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(name + " " + surName));
         $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(email));
-        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(gender));
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(phoneNumber));
-        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("06 October,1989"));
-        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("History, Maths"));
-        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports, Reading"));
-        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("Ошибка в браузере.png"));
+        $(".table-responsive").$(byText("Date of Birth")).parent()
+                .shouldHave(text(birthsDay + " " + birthsMounth + "," + birthsYear));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(subject1 + ", " + subject2));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(hobby1 + ", " + hobby2));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text(uploadFile));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(address));
-        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("Uttar Pradesh Agra"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(region + " " + city));
 
 
     }
@@ -69,14 +70,14 @@ public class CheckFormTests extends TestBase {
         // Ввод данных
         $("#firstName").setValue(name);
         $("#lastName").setValue(surName);
-        $("#genterWrapper").$(byText("Male")).click();
+        $("#genterWrapper").$(byText(gender)).click();
         $("#userNumber").setValue(phoneNumber);
         $("#submit").click();
 
         // Проверки формы
         $(".modal-header").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(name + " " + surName));
-        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(gender));
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(phoneNumber));
     }
 
@@ -102,20 +103,15 @@ public class CheckFormTests extends TestBase {
     void negativeEmptyFieldsTest(){
 
         // Открытие сайта
-        open("");
-        executeJavaScript("""
-            document.getElementById('fixedban')?.remove();
-            document.querySelector('footer')?.remove();
-            """);
-        $$(".card-body").findBy(text("Forms")).click();
-        $$(".router-link").findBy(text("Practice Form")).click();
+        checkFormPages.openPage()
+                .findTestPage();
 
         // Ввод данных
         $("#submit").click();
 
         // Проверки формы
         $("#firstName").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-        $("#genterWrapper").$(byText("Male")).shouldHave(cssValue("color", "rgba(220, 53, 69, 1)"));
+        $("#genterWrapper").$(byText(gender)).shouldHave(cssValue("color", "rgba(220, 53, 69, 1)"));
         $("#userNumber").shouldBe(match("background-image contains error icon",
                 el -> el.getCssValue("background-image").contains("stroke='%23dc3545'")));
     }
