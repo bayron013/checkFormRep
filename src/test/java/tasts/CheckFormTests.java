@@ -6,6 +6,7 @@ import pages.CheckFormPages;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static tasts.testdata.TestData.*;
 
 
 public class CheckFormTests extends TestBase {
@@ -90,7 +91,7 @@ public class CheckFormTests extends TestBase {
                 .findTestPage();
 
         // Ввод данных
-        $("#userEmail").setValue("quqaresh@rambler.1");
+        $("#userEmail").setValue(wrongEmail);
         $("#submit").click();
 
         // Проверки формы
