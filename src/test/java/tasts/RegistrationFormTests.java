@@ -2,10 +2,8 @@ package tasts;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RegistrationFormTests extends TestBase {
@@ -39,10 +37,9 @@ public class RegistrationFormTests extends TestBase {
                 .setHobby(dto.hobby2)
                 .inputFile(dto.uploadFileName)
                 .inputAddress(dto.address)
-                .setStateAndCity(dto.region, dto.city);
-
+                .setStateAndCity(dto.region, dto.city)
         // Подтверждение
-        checkFormPages.pressSubmit();
+                .pressSubmit();
 
         // Проверки формы
         submitRegComponent.checkModalWindow()
@@ -71,10 +68,9 @@ public class RegistrationFormTests extends TestBase {
         checkFormPages.inputFirstName(dto.name)
                 .inputLastName(dto.surName)
                 .setGender(dto.gender)
-                .inputNumber(dto.phoneNumber);
-
+                .inputNumber(dto.phoneNumber)
         // Подтверждение
-        checkFormPages.pressSubmit();
+                .pressSubmit();
 
         // Проверки формы
         submitRegComponent.checkModalWindow()
@@ -93,10 +89,10 @@ public class RegistrationFormTests extends TestBase {
                 .findTestPage();
 
         // Ввод данных
-        checkFormPages.inputEmail(dto.wrongEmail);
+        checkFormPages.inputEmail(dto.wrongEmail)
 
         // Подтверждение
-        checkFormPages.pressSubmit();
+                .pressSubmit();
 
         // Проверки формы
         checkFormPages.incorrectEmail();

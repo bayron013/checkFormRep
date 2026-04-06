@@ -6,7 +6,6 @@ import pages.components.CalendarComponent;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class CheckFormPages {
 
@@ -151,6 +150,5 @@ public class CheckFormPages {
 
         return this;
     }
-
 
 }
