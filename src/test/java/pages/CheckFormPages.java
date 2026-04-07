@@ -27,17 +27,18 @@ public class CheckFormPages {
 
     public CheckFormPages openPage() {
         open("");
-        closeBanners();
+
 
         return this;
     }
 
-    public void closeBanners() {
+    public CheckFormPages closeBanners() {
         executeJavaScript("""
                 document.getElementById('fixedban')?.remove();
                 document.querySelector('footer')?.remove();
                 """);
 
+        return this;
     }
 
     public CheckFormPages findTestPage() {

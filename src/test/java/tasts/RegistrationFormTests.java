@@ -18,7 +18,8 @@ public class RegistrationFormTests extends TestBase {
     void checkFormTest() {
 
         checkFormPages.openPage()
-                .findTestPage();
+                .findTestPage()
+                .closeBanners();
 
         checkFormPages.inputFirstName(dto.name)
                 .inputLastName(dto.surName)
@@ -54,7 +55,8 @@ public class RegistrationFormTests extends TestBase {
     void positiveMinimumFieldsTest() {
 
         checkFormPages.openPage()
-                .findTestPage();
+                .findTestPage()
+                .closeBanners();
 
         checkFormPages.inputFirstName(dto.name)
                 .inputLastName(dto.surName)
@@ -74,7 +76,8 @@ public class RegistrationFormTests extends TestBase {
     void negativeWrongEmailTest() {
 
         checkFormPages.openPage()
-                .findTestPage();
+                .findTestPage()
+                .closeBanners();
 
         checkFormPages.inputEmail(dto.wrongEmail)
                 .pressSubmit();
@@ -88,7 +91,8 @@ public class RegistrationFormTests extends TestBase {
     void negativeEmptyFieldsTest() {
 
         checkFormPages.openPage()
-                .findTestPage();
+                .findTestPage()
+                .closeBanners();
 
         checkFormPages.pressSubmit();
 
