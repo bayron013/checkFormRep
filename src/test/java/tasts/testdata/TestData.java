@@ -2,7 +2,6 @@ package tasts.testdata;
 
 public class TestData {
 
-    // Переиспользуемые корректные переменные
     public String name = "Vladick";
     public String surName = "Simba";
     public String email = "winwin@maaal.zet";
@@ -21,8 +20,6 @@ public class TestData {
     public String region = "Uttar Pradesh";
     public String city = "Agra";
 
-
-    // Некорректные переменные
     public String wrongEmail = "quqaresh@rambler.1";
-    
+
 }

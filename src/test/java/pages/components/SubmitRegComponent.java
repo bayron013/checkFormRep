@@ -9,19 +9,19 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SubmitRegComponent {
 
-    private SelenideElement modalHeader = $(".modal-header");
-    private SelenideElement modalBodyTable = $(".table-responsive");
+    private final SelenideElement MODAL_HEADER = $(".modal-header");
+    private final SelenideElement MODAL_BODY_TABLE = $(".table-responsive");
 
 
     public SubmitRegComponent checkModalWindow() {
-        modalHeader.should(Condition.appear);
-        modalHeader.shouldHave(text("Thanks for submitting the form"));
+        MODAL_HEADER.should(Condition.appear);
+        MODAL_HEADER.shouldHave(text("Thanks for submitting the form"));
 
         return this;
     }
 
     public SubmitRegComponent checkModalTable(String key, String value) {
-        modalBodyTable.$(byText(key)).parent()
+        MODAL_BODY_TABLE.$(byText(key)).parent()
                 .shouldHave(text(value));
 
         return this;
