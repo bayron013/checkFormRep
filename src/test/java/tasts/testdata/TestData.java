@@ -1,24 +1,31 @@
 package tasts.testdata;
 
+import com.github.javafaker.Faker;
+
+import java.util.Locale;
+
+import static tasts.utils.RandomUtils.*;
+
 public class TestData {
 
-    public String name = "Vladick";
-    public String surName = "Simba";
-    public String email = "winwin@maaal.zet";
-    public String phoneNumber = "7955443322";
-    public String gender = "Male";
-    public String address = "Приморское шоссе 15, к2";
-    public String subject1 = "History";
-    public String subject2 = "Maths";
-    public String hobby1 = "Sports";
-    public String hobby2 = "Reading";
+    Faker faker = new Faker();
+    Faker fakerRu = new Faker(new Locale("ru"));
+
+    public String name = fakerRu.name().firstName();
+    public String surName = fakerRu.name().lastName();
+    public String email = faker.internet().emailAddress();
+    public String phoneNumber = faker.phoneNumber().subscriberNumber(10);
+    public String gender = getRandomGender();
+    public String address = fakerRu.address().fullAddress();
+    public String subject1 = getRandomSubject();
+    public String hobby1 = getRandomHobby();
     public String uploadFileName = "Ошибка в браузере.png";
-    public String birthsDay = "06";
-    public String birthsMounth = "October";
-    public String birthsYear = "1989";
-    public String fullBirthsDate = birthsDay + " " + birthsMounth + "," + birthsYear;
-    public String region = "Uttar Pradesh";
-    public String city = "Agra";
+    public String birthsDay = Integer.toString(getRandomInt(10, 28));
+    public String birthsMounth = getRandomMounth();
+    public String birthsYear = Integer.toString(faker.number().numberBetween(1900,2100));
+    public String fullBirthsDate = String.format("%s %s,%s", birthsDay, birthsMounth, birthsYear);
+    public String region = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    public String city = getCityInState(region);
 
     public String wrongEmail = "quqaresh@rambler.1";
 

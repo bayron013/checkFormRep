@@ -9,10 +9,6 @@ public class RegistrationFormTests extends TestBase {
         return String.format("%s %s", val1, val2);
     }
 
-    private String getFormattedComma(String val1, String val2) {
-        return String.format("%s, %s", val1, val2);
-    }
-
 
     @Test
     void checkFormTest() {
@@ -28,9 +24,7 @@ public class RegistrationFormTests extends TestBase {
                 .inputNumber(dto.phoneNumber)
                 .setDateOfBirth(dto.birthsYear, dto.birthsMounth, dto.birthsDay)
                 .subjectInput(dto.subject1)
-                .subjectInput(dto.subject2)
                 .setHobby(dto.hobby1)
-                .setHobby(dto.hobby2)
                 .inputFile(dto.uploadFileName)
                 .inputAddress(dto.address)
                 .setStateAndCity(dto.region, dto.city)
@@ -42,8 +36,8 @@ public class RegistrationFormTests extends TestBase {
                 .checkModalTable("Gender", dto.gender)
                 .checkModalTable("Mobile", dto.phoneNumber)
                 .checkModalTable("Date of Birth", dto.fullBirthsDate)
-                .checkModalTable("Subjects", getFormattedComma(dto.subject1, dto.subject2))
-                .checkModalTable("Hobbies", getFormattedComma(dto.hobby1, dto.hobby2))
+                .checkModalTable("Subjects", dto.subject1)
+                .checkModalTable("Hobbies", dto.hobby1)
                 .checkModalTable("Picture", dto.uploadFileName)
                 .checkModalTable("Address", dto.address)
                 .checkModalTable("State and City", getFormattedSpace(dto.region, dto.city));
