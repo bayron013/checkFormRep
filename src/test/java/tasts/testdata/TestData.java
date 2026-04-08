@@ -27,6 +27,6 @@ public class TestData {
     public String region = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     public String city = getCityInState(region);
 
-    public String wrongEmail = "quqaresh@rambler.1";
+    public String wrongEmail = getWrongEmail();
 
 }
