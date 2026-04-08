@@ -3,43 +3,10 @@ package tasts.utils;
 import com.github.javafaker.Faker;
 
 import java.security.SecureRandom;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-
-    }
-
-    public static String getRandomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-
-        return getRandomItemFromStringArray(genders);
-    }
-
-    public static String getRandomHobby() {
-        String[] hobby = {"Sports", "Reading", "Music"};
-
-        return getRandomItemFromStringArray(hobby);
-    }
-
-    public static String getRandomSubject() {
-        String[] subject = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
-                "Computer Science", "Commerce", "Accounting", "Economics", "Arts",
-                "Social Studies", "History", "Civics"};
-
-        return getRandomItemFromStringArray(subject);
-    }
-
-    public static String getRandomMounth() {
-        String[] mounth = {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
-
-        return getRandomItemFromStringArray(mounth);
-    }
-
-    public static String getCityInState(String val){
+    public static String getCityInState(String val) {
         Faker faker = new Faker();
         return switch (val) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
@@ -50,14 +17,7 @@ public class RandomUtils {
         };
     }
 
-    public static String getRandomItemFromStringArray(String[] stringArray) {
-        int arrayLength = stringArray.length;
-        int randomIndex = getRandomInt(0, arrayLength - 1);
-
-        return stringArray[randomIndex];
-    }
-
-    public static String getWrongEmail(){
+    public static String getWrongEmail() {
         return String.format("%s@%s.1", getRandomString(8), getRandomString(5));
     }
 
@@ -71,7 +31,6 @@ public class RandomUtils {
 
         return result.toString();
     }
-
 
 
 }
